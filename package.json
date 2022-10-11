@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx cucumber-js features/*.feature --require step-defs/*.ts --require-module ts-node/register"
+    "test": "cucumber-js  -p runner & node report-config.ts",
+    "test:parallel": "cucumber-js  -p runner --parallel=2 & node report-config.ts",
+    "test_firefox": "BROWSER=firefox cucumber-js  -p runner & node report-config.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@cucumber/cucumber": "^8.6.0",
+    "cucumber-html-reporter": "^5.5.0",
     "playwright": "^1.26.1",
     "ts-node": "^10.9.1",
     "typescript": "^4.8.4"
